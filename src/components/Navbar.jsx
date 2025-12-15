@@ -23,6 +23,7 @@ export default function Navbar() {
     { name: "HOME", path: "", icon: <FiHome /> },
     { name: "ABOUT", path: "about", icon: <FiInfo /> },
     { name: "SERVICES", dropdown: true, icon: <FiBriefcase /> },
+    { name: "SERVICES AREA", path: "service-area", icon: <FiBriefcase /> },
     { name: "GALLERY", path: "gallery", icon: <FiImage /> },
     { name: "CONTACT", path: "contact", icon: <FiPhoneCall /> },
   ];
@@ -67,15 +68,12 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
         <Link to="/" onClick={() => setIsOpen(false)}>
   <img
-    src={logo} // Change to your actual logo path
+    src={logo} 
     alt="G.K Relocation Logo"
     className="h-14 w-auto object-contain"
   />
 </Link>
-
-
-          {/* Desktop Nav */}
-          <div className="hidden md:flex gap-8 items-center font-semibold text-[#1B2A41] relative">
+          <div className="hidden md:flex gap-6 items-center font-light text-[#1B2A41] relative">
             {navLinks.map((link, i) =>
               link.dropdown ? (
                 <div key={i} className="relative">

@@ -4,6 +4,7 @@ import TestimonialSection from '../components/Testimonial'
 import VisionMission from '../components/VissionMission'
 import OurTeam from '../components/OurTeam'
 import AboutHero from '../components/AboutHero'
+import FAQGurukirpa from '../components/FAQ'
 
 const About = () => {
   return (
@@ -13,6 +14,7 @@ const About = () => {
     <TestimonialSection/>
     <VisionMission/>
     <OurTeam/>
+    <FAQGurukirpa/>
     </>
   )
 }

@@ -4,11 +4,11 @@ import About from '../components/About'
 import WhyChooseUs from '../components/WhyChooseUs'
 import Service from '../components/ServiceSection'
 import DynamicStatsCounter from '../components/DynamicStatsCounter'
-import ThoughtAndContact from '../components/ThoughtAndConnect'
 import MarqueeStrip from '../components/MarqueeStrip'
-import FAQ from '../components/FAQ'
 import Hero from '../components/Hero'
 import GurukirpaSection from '../components/GuruSection'
+import FAQGurukirpa from '../components/FAQ'
+import GurukirpaRelocation from '../components/GuruKirpaRelocation'
 
 
 const Home = () => {
@@ -19,9 +19,10 @@ const Home = () => {
   <MarqueeStrip/>
   <WhyChooseUs/>
   <Service/>
- <DynamicStatsCounter/>
-<FAQ/>
 <GurukirpaSection/>
+ <DynamicStatsCounter/>
+<GurukirpaRelocation/>
+<FAQGurukirpa/>
 
   </>
   )

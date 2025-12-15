@@ -1,69 +1,98 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaBullseye, FaEye } from "react-icons/fa";
-import bgImage from "../assets/images/home/vission.jpg";
 
 export default function VisionMission() {
   return (
-    <section
-      className="relative bg-cover bg-center text-white"
-      style={{ backgroundImage: `url(${bgImage})` }}
-    >
-      {/* Overlay */}
-      <div className="absolute inset-0 backdrop-blur-[2px]"></div>
+    <section className="relative w-full py-5 bg-[#F7F7F7] overflow-hidden">
+      {/* Decorative SVG Circles */}
+      <svg
+        className="absolute -top-40 -left-40 w-[500px] h-[500px] opacity-10"
+        viewBox="0 0 400 400"
+        fill="none"
+      >
+        <circle cx="200" cy="200" r="180" stroke="#1E40AF" strokeWidth="3" />
+      </svg>
 
-      {/* Glow Circles (subtle animations) */}
-      <div className="absolute top-20 left-20 w-40 h-40 rounded-full bg-red-600/20 blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-20 w-48 h-48 rounded-full bg-white/10 blur-2xl animate-pulse"></div>
+      <svg
+        className="absolute bottom-[-200px] right-[-200px] w-[520px] h-[520px] opacity-10"
+        viewBox="0 0 400 400"
+        fill="none"
+      >
+        <circle cx="200" cy="200" r="190" stroke="#DC2626" strokeWidth="3" />
+      </svg>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-28">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-20 leading-snug tracking-wide">
-          Our <span className="text-red-500">Vision</span> &{" "}
-          <span className="text-gray-300">Mission</span>
-        </h2>
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-10"
+        >
+          <h2 className="text-4xl md:text-6xl font-extrabold text-black tracking-tight">
+            Vision & Mission
+          </h2>
 
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16">
-          {/* Vision Card */}
+          <div className="w-20 h-[3px] bg-red-600 mx-auto my-6"></div>
+
+          <p className="max-w-2xl mx-auto text-lg text-gray-600">
+            Our commitment is driven by trust, experience, and excellence in
+            professional relocation services across India.
+          </p>
+        </motion.div>
+
+        {/* Cards */}
+        <div className="grid md:grid-cols-2 gap-14">
+          {/* Vision */}
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="bg-white/10 border border-red-600 rounded-2xl p-10 shadow-2xl backdrop-blur-md hover:scale-[1.02] transition-transform"
+            transition={{ duration: 0.6 }}
+            className="relative bg-white rounded-3xl shadow-xl border border-gray-200 p-12 hover:-translate-y-2 transition-transform"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="bg-red-600/30 p-4 rounded-full">
-                <FaEye className="text-red-500 text-3xl" />
+            <div className="flex items-center gap-5 mb-8">
+              <div className="w-14 h-14 rounded-full flex items-center justify-center bg-blue-800/10">
+                <FaEye className="text-blue-800 text-2xl" />
               </div>
-              <h3 className="text-2xl md:text-3xl font-semibold text-white">
+              <h3 className="text-3xl font-semibold text-black">
                 Our Vision
               </h3>
             </div>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              At <strong>Gurukirpa Relocation</strong>, our vision is to redefine the moving experience
-              by offering fast, safe, and efficient services. We strive to become India’s most trusted
-              relocation partner by consistently delivering peace of mind with every move.
+
+            <p className="text-gray-700 text-lg leading-relaxed">
+              At{" "}
+              <span className="font-semibold text-black">
+                Gurukirpa Relocation
+              </span>
+              , our vision is to redefine relocation standards by delivering
+              safe, transparent, and timely moving solutions. We aim to build
+              long-term trust and become a nationally recognized name in the
+              logistics and relocation industry.
             </p>
           </motion.div>
 
-          {/* Mission Card */}
+          {/* Mission */}
           <motion.div
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="bg-white/10 border border-gray-400 rounded-2xl p-10 shadow-2xl backdrop-blur-md hover:scale-[1.02] transition-transform"
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="relative bg-white rounded-3xl shadow-xl border border-gray-200 p-12 hover:-translate-y-2 transition-transform"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="bg-white/20 p-4 rounded-full">
-                <FaBullseye className="text-white text-3xl" />
+            <div className="flex items-center gap-5 mb-8">
+              <div className="w-14 h-14 rounded-full flex items-center justify-center bg-red-600/10">
+                <FaBullseye className="text-red-600 text-2xl" />
               </div>
-              <h3 className="text-2xl md:text-3xl font-semibold text-white">
+              <h3 className="text-3xl font-semibold text-black">
                 Our Mission
               </h3>
             </div>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              Our mission is to deliver stress-free relocations by prioritizing customer care,
-              timely execution, and complete safety. With experienced professionals and tailored
-              solutions, we aim to exceed expectations in every move we handle.
+
+            <p className="text-gray-700 text-lg leading-relaxed">
+              Our mission is to deliver stress-free relocations through expert
+              planning, trained professionals, and high-quality packing
+              standards. We focus on safety, punctuality, and customer
+              satisfaction in every move we execute.
             </p>
           </motion.div>
         </div>

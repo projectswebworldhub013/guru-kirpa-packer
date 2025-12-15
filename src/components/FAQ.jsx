@@ -1,107 +1,185 @@
+// src/components/FAQGurukirpa.jsx
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaQuestionCircle } from "react-icons/fa";
-import bgImage from "../assets/gurukirpa.jpg"; // background image
+import {
+  FaTruckMoving,
+  FaShieldAlt,
+  FaWarehouse,
+  FaTools,
+  FaPlus,
+} from "react-icons/fa";
 
-const faqs = [
-  {
-    question:
-      "Will GuruKirpa Packers & Movers in Vijay Nagar transport my belongings inside the furniture itself?",
-    answer:
-      "Clothes and other movable items are removed and packed separately in boxes. This also makes them lighter to carry furniture away.",
-  },
-  {
-    question: "Should I pre-pack everything for them to carry away to the transport facility?",
-    answer:
-      "No, you do not need to pre-pack things. But, if you wish to be better prepared, you can do that too.",
-  },
-  {
-    question: "What will GuruKirpa Packers & Movers in Indore not pack?",
-    answer:
-      "Ideally, you should never pack dangerous items that come under the 'dangerous goods' list. If you are unsure, please check with the representative who visits your home to assess your requirements.",
-  },
-  {
-    question:
-      "Can I call them directly on the day of shifting or do I need an earlier appointment?",
-    answer:
-      "Personnel from the company need to visit your home to assess the weight and capacity of your belongings so they can plan to bring adequate supplies and transport them accordingly. GuruKirpa Packers & Movers are available during Monday–Sunday: Open 24 Hrs. So, schedule a house call accordingly.",
-  },
-  {
-    question: "Will they transport my plants safely?",
-    answer:
-      "Some movers and packers refuse to transport plants because of the risk of damage and death involved. Please ask them to provide clarity if they agree to the request.",
-  },
-  {
-    question: "Can I send my pets with the packers and movers?",
-    answer: "No, they only transport movable items and properties.",
-  },
-];
+const colors = {
+  red: "#C1272D",
+  blue: "#1D4ED8", // blue-700
+  black: "#1C1C1C",
+  gray: "#9CA3AF",
+  lightGray: "#F5F5F5",
+  white: "#FFFFFF",
+};
 
-const FAQ = () => {
+const faqCategories = {
+  "Safety & Insurance": {
+    icon: <FaShieldAlt className="text-xl text-blue-700" />,
+    faqs: [
+      {
+        question: "How safe is my household or office goods during shifting?",
+        answer:
+          "At Gurukirpa Relocation, we use premium packing materials, double-layer wrapping, and trained professionals to ensure complete safety of your goods during transit.",
+      },
+      {
+        question: "Do you provide insurance coverage?",
+        answer:
+          "Yes, we offer transit insurance options to safeguard your belongings against any unforeseen circumstances during relocation.",
+      },
+    ],
+  },
+  "Packing & Moving Process": {
+    icon: <FaTruckMoving className="text-xl text-blue-700" />,
+    faqs: [
+      {
+        question: "What packing materials do you use?",
+        answer:
+          "We use high-quality cartons, bubble wrap, stretch films, corrugated sheets, and customized wooden crates for fragile items.",
+      },
+      {
+        question: "Do you handle local and long-distance moves?",
+        answer:
+          "Absolutely. We specialize in local shifting, intercity moves, and long-distance relocation across India.",
+      },
+    ],
+  },
+  "Storage & Warehousing": {
+    icon: <FaWarehouse className="text-xl text-blue-700" />,
+    faqs: [
+      {
+        question: "Do you offer warehousing services?",
+        answer:
+          "Yes, we provide secure, clean, and monitored storage facilities for short-term and long-term requirements.",
+      },
+    ],
+  },
+  "Support & Service": {
+    icon: <FaTools className="text-xl text-blue-700" />,
+    faqs: [
+      {
+        question: "Is customer support available during shifting?",
+        answer:
+          "Yes, our support team stays connected throughout the moving process to provide real-time updates and assistance.",
+      },
+      {
+        question: "Why choose Gurukirpa Relocation Packers & Movers?",
+        answer:
+          "With years of experience, transparent pricing, skilled manpower, and timely delivery, Gurukirpa ensures stress-free relocation every time.",
+      },
+    ],
+  },
+};
+
+export default function FAQGurukirpa() {
+  const [activeTab, setActiveTab] = useState("Safety & Insurance");
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section
-      className="relative w-full py-16 px-4 md:px-8 text-white flex justify-center"
-      style={{
-        backgroundImage: `url(${bgImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundBlendMode: "overlay",
-        backgroundColor: "rgba(0,0,0,0.7)",
-      }}
-    >
-      {/* Overlay Glow Effect */}
-      <div className="absolute -top-32 right-0 w-[400px] h-[400px] bg-red-600 opacity-20 rounded-full blur-3xl z-0 animate-pulse" />
+    <section className="relative w-full py-8 px-6 overflow-hidden font-[Poppins] bg-[#F9FAFB]">
 
-      <div className="relative z-10 w-full max-w-4xl lg:max-w-5xl mx-auto bg-black/40 backdrop-blur-md rounded-3xl shadow-lg p-6 sm:p-10">
-        {/* Heading */}
-        <div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-red-500 mb-3 tracking-wide">
-            <FaQuestionCircle className="inline mr-2 text-red-500" />
-            Frequently Asked Questions
-          </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto text-sm md:text-base">
-            Common queries answered to help you understand our packing & moving process better.
-          </p>
+      {/* SVG BACKGROUND */}
+      <svg
+        className="absolute top-[-120px] left-[-120px] w-[420px] opacity-10"
+        viewBox="0 0 200 200"
+      >
+        <path
+          fill={colors.red}
+          d="M47.5,-66.2C60.5,-56.1,69.4,-41.3,73.6,-25.3C77.8,-9.4,77.2,7.6,69.3,20.9C61.4,34.3,46.2,44,30.2,53.4C14.3,62.9,-2.5,72.1,-19.4,71.3C-36.2,70.5,-53.1,59.7,-62.4,45.2C-71.7,30.7,-73.4,12.6,-69.2,-3.5C-65,-19.6,-54.9,-33.7,-42.1,-44.2C-29.3,-54.7,-14.7,-61.6,1.2,-63.2C17.1,-64.8,34.2,-61.1,47.5,-66.2Z"
+          transform="translate(100 100)"
+        />
+      </svg>
+
+      {/* HEADING */}
+      <div className="relative z-10 text-center mb-12">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-[#1C1C1C]">
+          Frequently Asked Questions
+        </h2>
+        <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+          Everything you need to know about{" "}
+          <span className="text-[#C1272D] font-semibold">
+            Gurukirpa Relocation Packers & Movers
+          </span>
+        </p>
+      </div>
+
+      {/* FAQ CONTAINER */}
+      <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row rounded-3xl overflow-hidden bg-white shadow-xl border border-gray-200">
+
+        {/* LEFT TABS */}
+        <div className="md:w-1/3 bg-[#F5F5F5] p-6 space-y-4 border-r">
+          {Object.keys(faqCategories).map((tab, i) => (
+            <motion.button
+              key={i}
+              whileHover={{ scale: 1.04 }}
+              onClick={() => {
+                setActiveTab(tab);
+                setOpenIndex(null);
+              }}
+              className={`w-full flex items-center gap-3 px-5 py-4 rounded-xl font-semibold transition ${
+                activeTab === tab
+                  ? "bg-[#C1272D] text-white shadow-lg"
+                  : "bg-white text-black hover:bg-gray-100"
+              }`}
+            >
+              {faqCategories[tab].icon}
+              {tab}
+            </motion.button>
+          ))}
         </div>
 
-        {/* FAQ Items */}
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="p-4 rounded-lg border border-gray-700 hover:border-red-500 transition-all"
+        {/* RIGHT FAQ */}
+        <div className="md:w-2/3 p-8">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -40 }}
+              transition={{ duration: 0.4 }}
             >
-              <button
-                className="w-full flex justify-between items-center text-left text-white text-base md:text-lg font-semibold"
-                onClick={() => setOpenIndex(index === openIndex ? null : index)}
-              >
-                {faq.question}
-                <span className="text-red-500 text-xl md:text-2xl font-bold">
-                  {openIndex === index ? "−" : "+"}
-                </span>
-              </button>
-
-              <AnimatePresence initial={false}>
-                {openIndex === index && (
-                  <motion.p
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="text-gray-300 mt-3 text-sm md:text-base leading-relaxed overflow-hidden"
+              {faqCategories[activeTab].faqs.map((faq, index) => (
+                <div key={index} className="border-b py-5">
+                  <button
+                    onClick={() =>
+                      setOpenIndex(openIndex === index ? null : index)
+                    }
+                    className="w-full flex justify-between items-center text-left"
                   >
-                    {faq.answer}
-                  </motion.p>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+                    <h3 className="text-lg md:text-xl font-semibold text-black">
+                      {faq.question}
+                    </h3>
+                    <motion.span
+                      animate={{ rotate: openIndex === index ? 45 : 0 }}
+                      className="text-[#C1272D]"
+                    >
+                      <FaPlus />
+                    </motion.span>
+                  </button>
+
+                  <AnimatePresence>
+                    {openIndex === index && (
+                      <motion.p
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
+                        className="mt-3 text-gray-600 leading-relaxed"
+                      >
+                        {faq.answer}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </section>
   );
-};
-
-export default FAQ;
+}
