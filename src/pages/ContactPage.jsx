@@ -32,7 +32,7 @@ const ContactPage = () => {
               <HiOutlinePhone className="mt-1 text-white text-2xl" />
               <div>
                 +91 9009078333 <br />
-                +91 9300178333 <br />
+                {/* +91 9300178333 <br /> */}
                 +91 7440223233
               </div>
             </div>

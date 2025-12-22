@@ -138,7 +138,7 @@ export default function Footer() {
     <ul className="space-y-2 text-black">
       {[
         { number: "+91 9009078333" },
-        { number: "+91 9300178333" },
+        // { number: "+91 9300178333" },
         { number: "+91 7440223233" },
       ].map((phone, i) => (
         <li key={i}>
